@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # System Description & Logic Flow
 # The KAMUI Protocol is a front-end experiment that utilizes a "Single-Source-of-Truth" style sheet to manage a complex, three-stage user experience. The code is architected to transition from traditional symbolic imagery to a raw data-driven terminal.
 
@@ -26,3 +27,7 @@
 # Zero-Dependency: The entire project runs on native browser engines with no external JavaScript overhead.
 
 # We built this to prove that a 'Technical Dashboard' doesn't have to be boring. By combining the aesthetics of a Chinese Temple with a CRT Terminal, we created a unique brand identity for the KAMUI project that relies entirely on CSS precision.
+=======
+# SnapS_yntax
+Kamui Website
+>>>>>>> 8e3be28cc7f2575a8630d1e27abafc30de74da30
