@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAMUI | V3.0_SYSTEM</title>
+    <style>
+        :root {
+            --k-red: #ff3e3e;
+            --k-black: #000000;
+            --k-white: #ffffff;
+            --k-blue: #1a2a6c;
+            --k-purple: #8e24aa;
+            --border: 3px solid #000;
+            --shadow: 8px 8px 0px #000;
+        }
+
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { 
+            margin: 0; 
+            background: var(--k-white); 
+            font-family: 'Courier New', Courier, monospace; 
+            color: var(--k-black);
+            overflow-x: hidden;
+        }
+
+        .page { min-height: 100vh; width: 100%; padding: 60px 10%; position: relative; border-bottom: 10px solid black; }
+        .flex-center { display: flex; flex-direction: column; align-items: center; }
+
+        /* --- PAGE 1: THE TEMPLE --- */
+        .logo-slide-container {
+            width: 300px; height: 60px; border: var(--border); overflow: hidden;
+            background: var(--k-black); margin-bottom: 20px;
+        }
+        .sliding-logo {
+            color: white; line-height: 60px; text-align: center; font-weight: 900;
+            animation: slideIntoBox 4s infinite ease-in-out;
+        }
+        @keyframes slideIntoBox {
+            0% { transform: translateY(-100%); } 50% { transform: translateY(0); } 100% { transform: translateY(100%); }
+        }
+
+        .temple-canvas {
+            width: 100%; max-width: 700px; height: 350px; background: var(--k-blue);
+            border: var(--border); box-shadow: var(--shadow); position: relative;
+            display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding-bottom: 40px;
+        }
+
+        /* Detailed CSS Temple */
+        .temple-structure { display: flex; flex-direction: column; align-items: center; }
+        .roof { background: var(--k-purple); border: 2px solid #000; margin-bottom: -5px; z-index: 2; }
+        .roof-1 { width: 60px; height: 30px; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
+        .roof-2 { width: 120px; height: 30px; clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%); }
+        .temple-body { 
+            width: 100px; height: 60px; background: #4a148c; border: var(--border);
+            display: flex; justify-content: space-around; padding: 5px;
+        }
+        .pillar { width: 10px; height: 100%; background: #000; }
+        .nature-overlay { color: #4caf50; font-size: 2rem; margin-top: 10px; }
+
+        /* --- PAGE 2: THE INTERFACE --- */
+        .monitor-frame {
+            background: #222; padding: 15px; border: 5px solid #444; border-radius: 10px; width: 100%; max-width: 500px;
+        }
+        .screen { background: #000; height: 250px; color: #0f0; padding: 10px; position: relative; overflow: hidden; }
+        
+        /* Moving Graph */
+        .live-graph {
+            width: 100%; height: 60px; stroke: var(--k-red); stroke-width: 2; fill: none;
+            position: absolute; bottom: 10px;
+        }
+        .path { stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: dash 5s linear infinite; }
+        @keyframes dash { to { stroke-dashoffset: 0; } }
+
+        .book-container { font-size: 50px; position: relative; height: 150px; overflow: hidden; }
+        .book { animation: bookFall 3s infinite linear; position: absolute; left: 45%; }
+        @keyframes bookFall { 0% { top: -50px; opacity: 0; } 50% { opacity: 1; } 100% { top: 150px; opacity: 0; } }
+
+        /* --- PAGE 3: BLACK VOID DATA --- */
+        .page-black { background: var(--k-black); color: var(--k-white); border-bottom: none; }
+        .terminal-box {
+            border: 2px solid #333; width: 100%; max-width: 800px; padding: 30px;
+            background: rgba(255, 255, 255, 0.05); border-radius: 5px;
+        }
+        .stat-box {
+            border: 2px solid var(--k-red); padding: 15px 30px; font-size: 2rem;
+            display: inline-block; margin: 10px; font-weight: bold;
+        }
+        .glitch-text { color: var(--k-red); animation: glitch 1s infinite alternate; }
+        @keyframes glitch { 0% { opacity: 1; } 100% { opacity: 0.7; transform: skew(2deg); } }
+
+        /* General Utils */
+        .abcd-box { border: var(--border); display: flex; gap: 10px; padding: 10px; background: white; margin-bottom: 15px; }
+        .side-side { display: flex; gap: 20px; width: 100%; margin: 20px 0; }
+        .box { padding: 20px; border: var(--border); flex: 1; }
+    </style>
+</head>
+<body>
+
+    <section class="page flex-center">
+        <div class="logo-slide-container"><div class="sliding-logo">KAMUI LOGO</div></div>
+        
+        <div class="temple-canvas">
+            <div class="temple-structure">
+                <div class="roof roof-1"></div>
+                <div class="roof roof-2"></div>
+                <div class="temple-body"><div class="pillar"></div><div class="pillar"></div></div>
+            </div>
+            <div class="nature-overlay">🌿☘️🌿☘️</div>
+        </div>
+
+        <div class="box" style="margin-top: 20px; background: white; width: 100%; max-width: 700px;">
+            <div class="abcd-box"><div>A</div><div>B</div><div>C</div><div>D</div></div>
+            <p><strong>TEMPLE REPORT:</strong> Spectral analysis confirms the purple temple is harmonized with the blue background. Ground vegetation is thriving within the white-box parameters.</p>
+        </div>
+
+        <div class="side-side">
+            <div class="box" style="background: var(--k-red); color: white;">KAMUI LOGO</div>
+            <div class="box" style="background: var(--k-black); color: white;">DATA: V_24.4 ACTIVE</div>
+        </div>
+        
+        <div class="box">
+            <h3>AaBbCc123</h3>
+            <p>Kamui refers to the divine power that governs the unseen dimensions. It is the bridge between the logic of the code and the art of the soul.</p>
+        </div>
+    </section>
+
+    <section class="page flex-center" style="background: #f4f4f4;">
+        <div class="side-side">
+            <div class="monitor-frame">
+                <div class="screen">
+                    <p>> SYSTEM: ONLINE</p>
+                    <p>> HEARTBEAT: DETECTED</p>
+                    <p>> ANALYZING_KAMUI_GRAPHS...</p>
+                    <svg class="live-graph"><path class="path" d="M0,30 L20,30 L25,5 L30,55 L35,30 L100,30" /></svg>
+                </div>
+                <p style="color: #666; font-size: 10px; margin-top: 5px;">HEARTBEAT TYPING DIAGRAM</p>
+            </div>
+            <div class="box" style="background: white;">
+                <strong>KEEP GOOGLING</strong>
+            </div>
+        </div>
+
+        <div class="side-side">
+            <div class="box" style="background: var(--k-red); color: white;">
+                <div class="book-container"><div class="book">📚</div></div>
+                <p>Knowledge Stack v.2</p>
+            </div>
+            <div class="box" style="background: var(--k-black); color: white;">KAMUI LOGO</div>
+        </div>
+
+        <div style="width: 100%; background: var(--k-red); color: white; padding: 10px; text-align: center; font-weight: bold; margin: 20px 0;">
+            FACEBOOK / TWITTER / PERSONAL / PROTOCOL
+        </div>
+
+        <div class="stat-wrapper">
+            <div class="stat-box">324 📈</div>
+            <div class="stat-box">244 📈</div>
+        </div>
+    </section>
+
+    <section class="page page-black flex-center">
+        <h1 class="glitch-text">KAMUI_CORE_DATABASE</h1>
+        
+        <div class="terminal-box">
+            <h2 style="color: var(--k-red); border-bottom: 1px solid #333;">// SYSTEM INFORMATION</h2>
+            <p>> Kamui is not just a name; it is a protocol. </p>
+            <p>> The mathematical graphs on Page 2 represent the frequency of data extraction.</p>
+            <p>> Status: <span style="color: #0f0;">ENCRYPTED</span></p>
+            <p>> Location: Chinese Temple Sector 04</p>
+            <br>
+            <p>The relationship between the red boxes and black containers represents the binary nature of the Kamui project. One provides the energy (Red), the other provides the structure (Black).</p>
+        </div>
+
+        <div class="side-side" style="margin-top: 40px; border-top: 1px solid #333; padding-top: 20px;">
+            <div class="box" style="background: var(--k-red); text-align: center;">
+                <span style="font-size: 2rem; color: black;">KAMUI LOGO</span>
+            </div>
+            <div class="box" style="border-color: white;">
+                <h4 style="margin: 0;">AaBb</h4>
+                <p style="color: var(--k-red); font-size: 1.5rem;">Aab123</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 50px; text-align: center;">
+            <span style="font-size: 3rem;">📖</span>
+            <p>PERSONAL PORTFOLIO 2026</p>
+            <div style="color: var(--k-red); font-weight: bold;">KAMUI PROTOCOL FINALIZED</div>
+        </div>
+    </section>
+
+</body>
+</html>
+
+
+
+
+//tell me what we have written in the code a brief description to add in readme file
